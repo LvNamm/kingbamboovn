@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Interface_color;
+use App\Models\Category;
 
 class ProductCtrl extends Controller
 {

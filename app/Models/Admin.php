@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Admin extends Model
 {
     use HasFactory;
+
+    public function createCategories(){
+        return $this->hasMany(Category::class,"created_by");
+    }
 }

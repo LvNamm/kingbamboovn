@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Interface_color;
 use Illuminate\Http\Request;
+use App\Models\Category;
 
 class CategoryCtrl extends Controller
 {
     public function index(){
         $interfaceColor = Interface_color::orderBy('id', 'DESC')->get()->first();
-        return view("index",["interfaceColor"=>$interfaceColor]);
+        $categories = Category::orderBy('priority')->get();
+        return view("index",["interfaceColor"=>$interfaceColor,"categories"=>$categories]);
     }
 
     public function showProductByCategory($category){

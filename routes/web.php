@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryCtrl;
 use App\Http\Controllers\ProductCtrl;
 use App\Http\Controllers\PolicyCtrl;
 use App\Http\Controllers\Admin\Interface_ColorCtrl;
+use App\Http\Controllers\Admin\CategoryAdminCtrl;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,7 @@ Route::get("/",[CategoryCtrl::class,'index']);
 Route::get("/danhmuc/{danhmuc}",[CategoryCtrl::class,'showProductByCategory']);
 Route::get("sanpham/{sp}",[ProductCtrl::class,"show"]);
 Route::get("trogiup/{tg}",[PolicyCtrl::class,"index"]);
+
 Route::group(['prefix' => 'admin'], function () {
     Route::get("/",[AdminCtrl::class,"index"]);
     Route::get("/login",[AdminCtrl::class,"login"]);
@@ -35,6 +37,10 @@ Route::group(['prefix' => 'admin'], function () {
     //color
     Route::get("/interface",[Interface_ColorCtrl::class,"index"]);
     Route::post("/interface/change-color",[Interface_ColorCtrl::class,"changeColor"]);
+
+    //category
+
+    Route::get("/category",[CategoryAdminCtrl::class,"index"]);
 });
 
 

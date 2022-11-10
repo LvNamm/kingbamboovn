@@ -146,28 +146,25 @@
                         
                     </li>
 
-                    <li class="menu-header small text-uppercase">
-                        <span class="menu-header-text">Pages</span>
-                    </li>
                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-dock-top"></i>
-                            <div data-i18n="Account Settings">Account Settings</div>
+                            <div data-i18n="Account Settings">Danh mục</div>
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
-                                <a href="pages-account-settings-account.html" class="menu-link">
-                                    <div data-i18n="Account">Account</div>
+                                <a href="/admin/category" class="menu-link">
+                                    <div data-i18n="Account">Tất cae danh mục</div>
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="pages-account-settings-notifications.html" class="menu-link">
-                                    <div data-i18n="Notifications">Notifications</div>
+                                <a href="\admin\" class="menu-link">
+                                    <div data-i18n="Notifications">Thêm danh mục</div>
                                 </a>
                             </li>
                             <li class="menu-item">
                                 <a href="pages-account-settings-connections.html" class="menu-link">
-                                    <div data-i18n="Connections">Connections</div>
+                                    <div data-i18n="Connections">Sửa danh mục</div>
                                 </a>
                             </li>
                         </ul>
