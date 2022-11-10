@@ -26,7 +26,7 @@
             <td>{{$category->createdAt->fullname}}</td>
             <td>{!! !empty($category->updatedBy) ? $category->updatedBy->fulname :''!!}</td>
             <td>
-                <a class="btn btn-primary" href="/admin/category/edit/{{$category->id}}">Sửa</a>
+                <a class="btn btn-primary mb-1" href="/admin/category/edit/{{$category->id}}">Sửa</a>
                 <a class="btn btn-primary" onclick="confirmDelete({{$category->id}},event)" href="#">Xóa</a>
             </td>
           </tr>

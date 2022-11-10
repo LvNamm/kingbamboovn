@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Category;
 class PolicyCtrl extends Controller
 {
     public function index($pt){
-        return view('policy');
+        $categories = Category::orderBy('priority')->get();
+        return view('policy',["categories"=>$categories]);
     }
 }

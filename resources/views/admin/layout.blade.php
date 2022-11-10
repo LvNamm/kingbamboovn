@@ -162,11 +162,6 @@
                                     <div data-i18n="Notifications">Thêm danh mục</div>
                                 </a>
                             </li>
-                            <li class="menu-item">
-                                <a href="pages-account-settings-connections.html" class="menu-link">
-                                    <div data-i18n="Connections">Sửa danh mục</div>
-                                </a>
-                            </li>
                         </ul>
                     </li>
                 </ul>

@@ -25,8 +25,9 @@ class CategoryCtrl extends Controller
             'tui-xach' => "Khay đựng",
             'gio-dung' => "Giỏ đựng"
         ];
+        $categories = Category::orderBy('priority')->get();
         $interfaceColor = Interface_color::orderBy('id', 'DESC')->get()->first();
-        return view("list-products-of-category",["category"=>$categorys[$category],"interfaceColor"=>$interfaceColor]);
+        return view("list-products-of-category",["category"=>$categorys[$category],"interfaceColor"=>$interfaceColor,"categories"=>$categories]);
     }
 
     

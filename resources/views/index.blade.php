@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title-page','Mây che đan mỹ nghệ | Kingbamnboo')
+@section('title-page','Mây tre đan mỹ nghệ | Kingbamnboo')
 @section('main-content')
 <style>
     .category{
@@ -9,6 +9,37 @@
     .category-text{
         color:{{$interfaceColor->bd_cl_text_category}};
     }
+
+    .div-show-product {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      overflow-y: hidden;
+      overflow-x: scroll;
+    }
+
+    .div-show-product::-webkit-scrollbar {
+      height: 0px;
+    }
+
+    .div-show-product::-webkit-scrollbar-track {
+      background-color: black;
+    }
+
+
+    .product-next:hover {
+      background-image: linear-gradient(-90deg, rgb(0 128 0 / 50%), white) !important;
+      cursor: pointer;
+    }
+
+    
+    
+
+    .product-previous:hover {
+      background-image: linear-gradient(90deg, rgb(0 128 0 / 50%), white) !important;
+      cursor: pointer;
+    }
+
+    
 </style>
 <div class="container p-0">
       <div class=" ps-0 pe-0  mb-3 row w-100" style="justify-content:space-between">
@@ -17,13 +48,13 @@
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img class="d-block w-100" src="/images/carosel/anhbialon1.jpg" alt="First slide">
+                    <img class="d-block w-100" src="/images/carosel/bia1.png" alt="First slide">
                   </div>
                   <div class="carousel-item">
-                    <img class="d-block w-100" src="/images/carosel/anhbialon2.jpg" alt="Second slide">
+                    <img class="d-block w-100" src="/images/carosel/bia2.png" alt="Second slide">
                   </div>
                   <div class="carousel-item">
-                    <img class="d-block w-100" src="/images/carosel/anhbialon3.jpg" alt="Third slide">
+                    <img class="d-block w-100" src="/images/carosel/bia3.png" alt="Third slide">
                   </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -40,11 +71,11 @@
 
         <div class="col-md-4 ps-1 row p-0">
           <div class="col-md-12 ">
-            <img class="boder-green w-100 p-0 pb-2" src="/images/carosel/anhbianho3.jpg"  alt="">
+            <img class="boder-green w-100 p-0 pb-2" src="/images/carosel/biabe1.png"  alt="">
           </div>
 
           <div class="col-md-12">
-            <img class="col-md-12 boder-green w-100 p-0 pt-2" src="/images/carosel/anhbianho4.jpg"  alt="">
+            <img class="col-md-12 boder-green w-100 p-0 pt-2" src="/images/carosel/biabe1.png"  alt="">
           </div>
           
           
@@ -86,7 +117,7 @@
 <section class="section-products">
     <!-- Trang trí nhà cửa -->
     <div class="container mb-5">
-        <div class="row mb-3 category" >
+        <div class="row mb-3 category" style="border:1px solid green; background-color: #46b946;">
             <div class="col-md-8 col-lg-6">
                 <div>
                     <a href="/danhmuc/trang-tri-nha-cua">
@@ -95,12 +126,35 @@
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center row-cols-sm-2 row-cols-md-3 row-cols-xl-5">
-        @php
-            $i = 1;
-            for($i=1;$i<=10;$i++){
-                 if($i%2==1){
-                     echo'<a href="/sanpham/abc" class="col product-item">
+        <div style="position: relative">
+            <div class="product-next product-icon-more mb-1" style="height: 99%;width:5%;position:absolute; right:-1%;background-image:linear-gradient(-90deg, rgb(0 128 0 / 10%), white)">
+                <i class="fa-solid fa-chevron-right" style="position:absolute; top:50%;left:50%;transform:translate(-50%,-50%)"></i>
+            </div>
+
+
+            <div class="product-previous product-icon-more mb-1" style="height: 99%;width:5%;position:absolute; left:-1%;background-image:linear-gradient(90deg, rgb(0 128 0 / 10%), white)">
+                <i class="fa-solid fa-chevron-left" style="position:absolute; top:50%;left:50%;transform:translate(-50%,-50%)"></i>
+            </div>
+
+            <div class="row div-show-product">
+                @php
+                $i = 1;
+                for($i=1;$i<=10;$i++){ if($i%2==1){ 
+                    if($i==1)
+                    echo'<a href="/sanpham/abc" class="product-item w-20">
+                    <div id="product-1" class="single-product me-1 mb-1">
+                        <div class="part">
+                            <img class="test" style="width: 100%;" src="/images/ex_product.jpg" alt="">
+                        </div>
+                        <div class="part-2">
+                            <h3 class="product-title">Here Product Title</h3>
+                            <h4 class="product-old-price">$79.99</h4>
+                            <h4 class="product-price">$49.99</h4>
+                        </div>
+                    </div>
+                    </a>' ;
+                    else{
+                        echo'<a href="/sanpham/abc" class="product-item w-20">
                     <div id="product-1" class="single-product ms-1 me-1 mb-1">
                         <div class="part">
                             <img class="test" style="width: 100%;" src="/images/ex_product.jpg" alt="">
@@ -111,22 +165,25 @@
                             <h4 class="product-price">$49.99</h4>
                         </div>
                     </div>
-                </a>' ;
-                    } 
+                    </a>' ;
+                    }
+                    }
                     else{
-                        echo '<a href="/sanpham/abc" class="col product-item">
-                    <div id="product-2" class="single-product ms-1 me-1 mb-1">
-                        <div class="part">
-                            <img class="test" style="width: 100%;" src="/images/ex_product.jpg" alt="">
+                    echo '<a href="/sanpham/abc" class="product-item w-20">
+                        <div id="product-2" class="single-product ms-1 me-1 mb-1">
+                            <div class="part">
+                                <img class="test" style="width: 100%;" src="/images/ex_product.jpg" alt="">
+                            </div>
+                            <div class="part-2">
+                                <h3 class="product-title">Here Product Title</h3>
+                                <h4 class="product-price">$49.99</h4>
+                            </div>
                         </div>
-                        <div class="part-2">
-                            <h3 class="product-title">Here Product Title</h3>
-                            <h4 class="product-price">$49.99</h4>
-                        </div>
-                    </div>
                     </a>';
                     }
-            } @endphp <!-- Single Product -->
+                    } @endphp
+                    <!-- Single Product -->
+            </div>
         </div>
     </div>
     <!-- Trang trí quán cafe -->

@@ -5,13 +5,14 @@
   <meta charset='utf-8'>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <title>@yield('title-page')</title>
-  <link rel="image" type="image/x-icon" href="/images/logo/logonn.png">
+  <link rel="icon" type="image/x-icon" href="/images/logo/logo.ico" />
   <link href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' rel='stylesheet'>
   <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
   {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> --}}
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
   integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> --}}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
   <link rel="stylesheet" href="/css/style.css">
   <style>
 
@@ -145,7 +146,9 @@
       background-color: #46b946;
       color: black;
     }
-
+    .w-20 {
+      width: 20% !important;
+    }
     .content-contact{
       color: {{$interfaceColor->hd_cl_text_contact_content}}
     }
@@ -273,37 +276,51 @@
   <main style="position: relative;top:270px">
   @yield('main-content')
 
-  <footer class="container-fluid" style=" background-color:{{$interfaceColor->ft_cl_background}}; padding-top: 30px; color: white;">
+  <footer>
+    <div class="container-fluid" style=" background-color: #46b946;; padding-top: 20px; color: white;">
     <div class="container row" style="margin-left:auto;margin-right: auto;">
+      <div class="col-md-4" style="margin: 0">
+        <h4>Trợ giúp</h4>
+        <hr style="margin-top: 5px">
+      </div>
+
+      <div class="col-md-4" style="margin: 0">
+        <h4 >Liên kết nhanh</h4>
+        <hr style="margin-top: 5px">
+      </div>
+      <div class="col-md-4" style="margin: 0">
+        <h4>Liên hệ</h4>
+        <hr style="margin-top: 5px">
+        
+    </div>
+    </div>
+  </div>
+  <div>
+    <div class="container row pt-4" style="margin-left:auto;margin-right: auto; color:black">
       <div class="col-md-4">
-        <h4 class="text-footer">Trợ giúp</h4>
-        <hr>
-        <ul class="text-footer" style="list-style-type:none;padding: 0;">
-          <li style="margin-bottom: 15px;"><a href="/trogiup/abc"> Giới thiệu công ty </a></li>
-          <li style="margin-bottom: 15px;"><a href="/trogiup/abc"> Chính sách thanh toán</a></li>
-          <li style="margin-bottom: 15px;"><a href="/trogiup/abc"> Chinh sách vận chuyển</a></li>
-          <li style="margin-bottom: 15px;"><a href="/trogiup/abc"> Chính sách đổi trả và hoàn tiền</a></li>
-          <li style="margin-bottom: 15px;"><a href="/trogiup/abc"> Hướng dẫn bảo quản</a></li>
-        </ul>
+          <ul style="list-style-type:none;padding: 0;">
+            <li style="margin-bottom: 15px;"><a href="/trogiup/abc"> Giới thiệu công ty </a></li>
+            <li style="margin-bottom: 15px;"><a href="/trogiup/abc"> Chính sách thanh toán</a></li>
+            <li style="margin-bottom: 15px;"><a href="/trogiup/abc"> Chinh sách vận chuyển</a></li>
+            <li style="margin-bottom: 15px;"><a href="/trogiup/abc"> Chính sách đổi trả và hoàn tiền</a></li>
+            <li style="margin-bottom: 15px;"><a href="/trogiup/abc"> Hướng dẫn bảo quản</a></li>
+          </ul>
       </div>
 
       <div class="col-md-4">
-        <h4 class="text-footer">Liên kết nhanh</h4>
-        <hr>
-        <ul class="text-footer" style="list-style-type:none;padding: 0;">
+        <ul style="list-style-type:none;padding: 0;">
           <li style="margin-bottom: 15px;">
             <strong>Fanpage: </strong> &nbsp; <a href="https://www.facebook.com/kingbamboo.vn" target="_black">fb.com/kingbamboo.vn</a>
           </li>
 
           <li style="margin-bottom: 15px;">
-            <strong>Shpee: </strong> &nbsp; <a href="https://shopee.vn/kingbamboovn" target="_black">shopee.com/kingbamboovn</a>
+            <strong>Shopee: </strong> &nbsp; <a href="https://shopee.vn/kingbamboovn" target="_black">shopee.com/kingbamboovn</a>
           </li>
         </ul>
       </div>
+
       <div class="col-md-4">
-        <h4 class="text-footer">Liên hệ</h4>
-        <hr>
-        <ul class="text-footer" style="list-style-type:none;padding: 0;">
+          <ul style="list-style-type:none;padding: 0;">
           <li style="margin-bottom: 10px;">
             <strong>Địa chỉ:</strong> &nbsp;Xóm hạ, Phú Vinh , Phú Nghĩa , Chương Mỹ , Hà Nội
           </li>
@@ -314,14 +331,19 @@
             <strong>Email:</strong> &nbsp; kingbamboo@gmail.com
           </li>
           <li>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3726.459059141858!2d105.64814765062852!3d20.934072196311124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313451766b02f071%3A0x34ab38219df9517!2zTcOieSBUcmUgxJBhbiBWxrDGoW5nIFRoaeG6v3Q!5e0!3m2!1svi!2s!4v1666278792588!5m2!1svi!2s"
-              height="300" style="border:0; width: 100%;" allowfullscreen="" loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3726.459059141858!2d105.64814765062852!3d20.934072196311124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313451766b02f071%3A0x34ab38219df9517!2zTcOieSBUcmUgxJBhbiBWxrDGoW5nIFRoaeG6v3Q!5e0!3m2!1svi!2s!4v1666278792588!5m2!1svi!2s" height="300" style="border:0; width: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      
       </li>
       </ul>
     </div>
+    </div>
+  </div>
+
+  <div class="container-fluid" style=" background-color: #46b946;; padding-top: 20px; color: white;">
+    <p class="text-center" style="font-size:0.9rem;margin:0">CÔNG TY TNHH THIẾT MAI</p>
+    <p class="text-center" style="font-size:0.9rem;margin:0">Địa chỉ	Xóm Hạ, thôn Phú Vinh, Xã Phú Nghĩa, Huyện Chương Mỹ, Thành phố Hà Nội, Việt Nam</p>
+    <p class="text-center" style="font-size:0.9rem;margin:0">Giấy phép kinh doanh số:</p>
+  </div>
   </footer>
 </main>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -329,6 +351,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <script type='text/javascript'
     src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js'></script>
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
   <script src="/js/jsmain.js"></script>
   
 

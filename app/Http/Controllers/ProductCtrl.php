@@ -10,6 +10,7 @@ class ProductCtrl extends Controller
 {
     public function show($product){
         $interfaceColor = Interface_color::orderBy('id', 'DESC')->get()->first();
-        return view("product",["interfaceColor"=>$interfaceColor]);
+        $categories = Category::orderBy('priority')->get();
+        return view("product",["interfaceColor"=>$interfaceColor,"categories"=>$categories]);
     }
 }

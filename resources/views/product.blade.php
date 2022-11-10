@@ -43,12 +43,10 @@
 
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
+                    
                 </button>
                 <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
+                    
                 </button>
             </div>
 
@@ -117,45 +115,52 @@
             <br>
             <br>
             <div>
-                <b>
-                    <p>SKU</p>
-                </b>
+                <p>
+                    <b>SKU</b>
+                    &nbsp Nam
+                </p>
             </div>
 
             <div>
-                <b>
-                    <p>Chất liệu:</p>
-                </b>
+                <p>
+                    <b>Chất liệu:</b>
+                    &nbsp Nam
+                </p>
             </div>
 
             <div>
-                <b>
-                    <p>Xuất khẩu:</p>
-                </b>
+                <p>
+                    <b>Xuất khẩu:</b>
+                    &nbsp Nam
+                </p>
             </div>
 
             <div>
-                <b>
-                    <p>Bao bì đóng gói:</p>
-                </b>
+                <p>
+                    <b>Bao bì đóng gói:</b>
+                    &nbsp Nam
+                </p>
             </div>
 
             <div>
-                <b>
-                    <p>Công dụng:</p>
-                </b>
+                <p>
+                    <b>Công dụng:</b>
+                    &nbsp Nam
+                </p>
             </div>
 
             <div>
-                <b>
-                    <p>Mô tả sản phẩm:</p>
-                </b>
+                <p>
+                    <b>Mô tả sản phẩm:</b>
+                    &nbsp Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur rem nemo sed qui tenetur delectus laboriosam ipsam enim. Quae error doloremque nesciunt necessitatibus quod distinctio tenetur accusamus asperiores a eum.
+                </p>
             </div>
 
             <div>
-                <b>
-                    <p>Lưu ý khi sử dụng:</p>
-                </b>
+                <p>
+                    <b>Lưu ý khi sử dụng:</b>
+                    &nbsp Nam
+                </p>
             </div>
 
 
