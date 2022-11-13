@@ -277,7 +277,7 @@
   @yield('main-content')
 
   <footer>
-    <div class="container-fluid" style=" background-color: #46b946;; padding-top: 20px; color: white;">
+    <div class="container-fluid text-footer" style=" background-color: #46b946;; padding-top: 20px;">
     <div class="container row" style="margin-left:auto;margin-right: auto;">
       <div class="col-md-4" style="margin: 0">
         <h4>Trợ giúp</h4>

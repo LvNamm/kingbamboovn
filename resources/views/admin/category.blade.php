@@ -24,7 +24,7 @@
             <td>{{$category->link}}</td>
             <td>{{$category->priority}}</td>
             <td>{{$category->createdAt->fullname}}</td>
-            <td>{!! !empty($category->updatedBy) ? $category->updatedBy->fulname :''!!}</td>
+            <td>{!! !empty($category->updatedBy) ? $category->updatedBy->fullname :''!!}</td>
             <td>
                 <a class="btn btn-primary mb-1" href="/admin/category/edit/{{$category->id}}">Sửa</a>
                 <a class="btn btn-primary" onclick="confirmDelete({{$category->id}},event)" href="#">Xóa</a>
@@ -42,7 +42,7 @@
   <script> 
     function confirmDelete(id,e) {
         if (confirm("Xóa danh mục có id = " +id +"?") == true) {
-            window.location = "/category/delete/"+id;
+            window.location = "/admin/category/delete/"+id;
         }
     }
 </script>

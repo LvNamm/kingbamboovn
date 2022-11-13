@@ -12,7 +12,7 @@ $(document).ready(function() {
     });
 
     $(".product-next").click(function() {
-        $(".div-product-previous").show();
+        $(".product-previous").show();
         console.log("Nam");
         let scrolled = $(".div-show-product").scroll() - 50;
 
@@ -33,7 +33,7 @@ $(document).ready(function() {
         setTimeout(function() {
             console.log($(".div-show-product").scrollLeft())
             if ($(".div-show-product").scrollLeft() == 0) {
-                $(".div-product-previous").hide();
+                $(".product-previous").hide();
             }
         }, 600)
     })

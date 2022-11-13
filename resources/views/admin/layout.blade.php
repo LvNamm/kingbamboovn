@@ -51,6 +51,7 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="/assets/js/config.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body>
@@ -158,12 +159,32 @@
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="\admin\" class="menu-link">
+                                <a href="\admin\create-category" class="menu-link">
                                     <div data-i18n="Notifications">Thêm danh mục</div>
                                 </a>
                             </li>
                         </ul>
                     </li>
+                    
+
+                    <li class="menu-item">
+                      <a href="javascript:void(0);" class="menu-link menu-toggle">
+                          <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                          <div data-i18n="Account Settings">Sản phẩm</div>
+                      </a>
+                      <ul class="menu-sub">
+                          <li class="menu-item">
+                              <a href="/admin/product" class="menu-link">
+                                  <div data-i18n="Account">Tất cả sản phẩm</div>
+                              </a>
+                          </li>
+                          <li class="menu-item">
+                              <a href="/admin/create-product" class="menu-link">
+                                  <div data-i18n="Notifications">Thêm sản phẩm</div>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
                 </ul>
             </aside>
             <!-- / Menu -->

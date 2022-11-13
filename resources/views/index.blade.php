@@ -27,18 +27,24 @@
 
 
     .product-next:hover {
-      background-image: linear-gradient(-90deg, rgb(0 128 0 / 50%), white) !important;
       cursor: pointer;
     }
 
-    
+    .product-next:hover>.product-action-icon-next{
+      color: rgb(87, 87, 87);
+    }
     
 
-    .product-previous:hover {
-      background-image: linear-gradient(90deg, rgb(0 128 0 / 50%), white) !important;
-      cursor: pointer;
+    .product-previous:hover>.product-action-icon-previous{
+      color: rgb(87, 87, 87);
+    }
+    .product-previous:hover{
+        cursor: pointer;
     }
 
+    .product-action-icon{
+        color: rgb(187, 170, 170);
+    }
     
 </style>
 <div class="container p-0">
@@ -117,23 +123,23 @@
 <section class="section-products">
     <!-- Trang trí nhà cửa -->
     <div class="container mb-5">
-        <div class="row mb-3 category" style="border:1px solid green; background-color: #46b946;">
+        <div class="row mb-3 category" >
             <div class="col-md-8 col-lg-6">
-                <div>
-                    <a href="/danhmuc/trang-tri-nha-cua">
+                <div class ="category-text">
+                    <a  href="/danhmuc/trang-tri-nha-cua">
                         <h2 class="category-text">Trang trí nhà cửa</h2>
                     </a>
                 </div>
             </div>
         </div>
         <div style="position: relative">
-            <div class="product-next product-icon-more mb-1" style="height: 99%;width:5%;position:absolute; right:-1%;background-image:linear-gradient(-90deg, rgb(0 128 0 / 10%), white)">
-                <i class="fa-solid fa-chevron-right" style="position:absolute; top:50%;left:50%;transform:translate(-50%,-50%)"></i>
+            <div class="product-next product-icon-more mb-1" style="height: 99%;width:5%;position:absolute; right:-1%;">
+                <i class="fa-solid fa-chevron-right product-action-icon product-action-icon-next" style="position:absolute; top:50%;left:50%;transform:translate(-50%,-50%);font-size:2rem"></i>
             </div>
 
 
-            <div class="product-previous product-icon-more mb-1" style="height: 99%;width:5%;position:absolute; left:-1%;background-image:linear-gradient(90deg, rgb(0 128 0 / 10%), white)">
-                <i class="fa-solid fa-chevron-left" style="position:absolute; top:50%;left:50%;transform:translate(-50%,-50%)"></i>
+            <div class="product-previous product-icon-more mb-1" style="height: 99%;width:5%;position:absolute; left:-1%;">
+                <i class="fa-solid fa-chevron-left product-action-icon product-action-icon-previous" style="position:absolute; top:50%;left:50%;transform:translate(-50%,-50%);font-size:2rem"></i>
             </div>
 
             <div class="row div-show-product">
@@ -190,18 +196,42 @@
     <div class="container mb-5">
         <div class="row mb-3 category" >
             <div class="col-md-8 col-lg-6">
-                <a href="/danhmuc/trang-tri-quan-cafe">
-                    <h2 class="category-text">Trang trí quán cafe</h2>
-                </a>
+                <div class ="category-text">
+                    <a  href="/danhmuc/trang-tri-quan-cafe">
+                        <h2 class="category-text">Trang trí quán cafe</h2>
+                    </a>
+                </div>
             </div>
         </div>
-        <div class="row justify-content-center row-cols-sm-2 row-cols-md-3 row-cols-xl-5">
-            <!-- Single Product -->
-             @php
-            $i = 1;
-            for($i=1;$i<=10;$i++){
-                 if($i%2==1){
-                     echo'<a href="/sanpham/abc" class="col product-item">
+        <div style="position: relative">
+            <div class="product-next product-icon-more mb-1" style="height: 99%;width:5%;position:absolute; right:-1%;">
+                <i class="fa-solid fa-chevron-right product-action-icon product-action-icon-next" style="position:absolute; top:50%;left:50%;transform:translate(-50%,-50%);font-size:2rem"></i>
+            </div>
+
+
+            <div class="product-previous product-icon-more mb-1" style="height: 99%;width:5%;position:absolute; left:-1%;">
+                <i class="fa-solid fa-chevron-left product-action-icon product-action-icon-previous" style="position:absolute; top:50%;left:50%;transform:translate(-50%,-50%);font-size:2rem"></i>
+            </div>
+
+            <div class="row div-show-product">
+                @php
+                $i = 1;
+                for($i=1;$i<=10;$i++){ if($i%2==1){ 
+                    if($i==1)
+                    echo'<a href="/sanpham/abc" class="product-item w-20">
+                    <div id="product-1" class="single-product me-1 mb-1">
+                        <div class="part">
+                            <img class="test" style="width: 100%;" src="/images/ex_product.jpg" alt="">
+                        </div>
+                        <div class="part-2">
+                            <h3 class="product-title">Here Product Title</h3>
+                            <h4 class="product-old-price">$79.99</h4>
+                            <h4 class="product-price">$49.99</h4>
+                        </div>
+                    </div>
+                    </a>' ;
+                    else{
+                        echo'<a href="/sanpham/abc" class="product-item w-20">
                     <div id="product-1" class="single-product ms-1 me-1 mb-1">
                         <div class="part">
                             <img class="test" style="width: 100%;" src="/images/ex_product.jpg" alt="">
@@ -212,42 +242,67 @@
                             <h4 class="product-price">$49.99</h4>
                         </div>
                     </div>
-                </a>' ;
-                    } 
+                    </a>' ;
+                    }
+                    }
                     else{
-                        echo '<a href="/sanpham/abc" class="col product-item">
-                    <div id="product-2" class="single-product ms-1 me-1 mb-1">
-                        <div class="part">
-                            <img class="test" style="width: 100%;" src="/images/ex_product.jpg" alt="">
+                    echo '<a href="/sanpham/abc" class="product-item w-20">
+                        <div id="product-2" class="single-product ms-1 me-1 mb-1">
+                            <div class="part">
+                                <img class="test" style="width: 100%;" src="/images/ex_product.jpg" alt="">
+                            </div>
+                            <div class="part-2">
+                                <h3 class="product-title">Here Product Title</h3>
+                                <h4 class="product-price">$49.99</h4>
+                            </div>
                         </div>
-                        <div class="part-2">
-                            <h3 class="product-title">Here Product Title</h3>
-                            <h4 class="product-price">$49.99</h4>
-                        </div>
-                    </div>
                     </a>';
                     }
-            } @endphp <!-- Single Product -->
+                    } @endphp
+                    <!-- Single Product -->
+            </div>
         </div>
     </div>
     <!-- Trang trí văn phòng -->
     <div class="container mb-5">
         <div class="row mb-3 category" >
             <div class="col-md-8 col-lg-6">
-                <div>
-                    <a href="/danhmuc/trang-tri-van-phong">
+                <div class ="category-text">
+                    <a  href="/danhmuc/trang-tri-văn phòng">
                         <h2 class="category-text">Trang trí văn phòng</h2>
                     </a>
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center row-cols-sm-2 row-cols-md-3 row-cols-xl-5">
-            <!-- Single Product -->
-             @php
-            $i = 1;
-            for($i=1;$i<=10;$i++){
-                 if($i%2==1){
-                     echo'<a href="/sanpham/abc" class="col product-item">
+        <div style="position: relative">
+            <div class="product-next product-icon-more mb-1" style="height: 99%;width:5%;position:absolute; right:-1%;">
+                <i class="fa-solid fa-chevron-right product-action-icon product-action-icon-next" style="position:absolute; top:50%;left:50%;transform:translate(-50%,-50%);font-size:2rem"></i>
+            </div>
+
+
+            <div class="product-previous product-icon-more mb-1" style="height: 99%;width:5%;position:absolute; left:-1%;">
+                <i class="fa-solid fa-chevron-left product-action-icon product-action-icon-previous" style="position:absolute; top:50%;left:50%;transform:translate(-50%,-50%);font-size:2rem"></i>
+            </div>
+
+            <div class="row div-show-product">
+                @php
+                $i = 1;
+                for($i=1;$i<=10;$i++){ if($i%2==1){ 
+                    if($i==1)
+                    echo'<a href="/sanpham/abc" class="product-item w-20">
+                    <div id="product-1" class="single-product me-1 mb-1">
+                        <div class="part">
+                            <img class="test" style="width: 100%;" src="/images/ex_product.jpg" alt="">
+                        </div>
+                        <div class="part-2">
+                            <h3 class="product-title">Here Product Title</h3>
+                            <h4 class="product-old-price">$79.99</h4>
+                            <h4 class="product-price">$49.99</h4>
+                        </div>
+                    </div>
+                    </a>' ;
+                    else{
+                        echo'<a href="/sanpham/abc" class="product-item w-20">
                     <div id="product-1" class="single-product ms-1 me-1 mb-1">
                         <div class="part">
                             <img class="test" style="width: 100%;" src="/images/ex_product.jpg" alt="">
@@ -258,42 +313,67 @@
                             <h4 class="product-price">$49.99</h4>
                         </div>
                     </div>
-                </a>' ;
-                    } 
+                    </a>' ;
+                    }
+                    }
                     else{
-                        echo '<a href="/sanpham/abc" class="col product-item">
-                    <div id="product-2" class="single-product ms-1 me-1 mb-1">
-                        <div class="part">
-                            <img class="test" style="width: 100%;" src="/images/ex_product.jpg" alt="">
+                    echo '<a href="/sanpham/abc" class="product-item w-20">
+                        <div id="product-2" class="single-product ms-1 me-1 mb-1">
+                            <div class="part">
+                                <img class="test" style="width: 100%;" src="/images/ex_product.jpg" alt="">
+                            </div>
+                            <div class="part-2">
+                                <h3 class="product-title">Here Product Title</h3>
+                                <h4 class="product-price">$49.99</h4>
+                            </div>
                         </div>
-                        <div class="part-2">
-                            <h3 class="product-title">Here Product Title</h3>
-                            <h4 class="product-price">$49.99</h4>
-                        </div>
-                    </div>
                     </a>';
                     }
-            } @endphp <!-- Single Product -->
+                    } @endphp
+                    <!-- Single Product -->
+            </div>
         </div>
     </div>
     <!-- Khay đựng -->
     <div class="container mb-5">
         <div class="row mb-3 category" >
             <div class="col-md-8 col-lg-6">
-                <div>
-                    <a href="/danhmuc/khay-dung">
+                <div class ="category-text">
+                    <a  href="/danhmuc/khay-dung">
                         <h2 class="category-text">Khay đựng</h2>
                     </a>
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center row-cols-sm-2 row-cols-md-3 row-cols-xl-5">
-            <!-- Single Product -->
-             @php
-            $i = 1;
-            for($i=1;$i<=10;$i++){
-                 if($i%2==1){
-                     echo'<a href="/sanpham/abc" class="col product-item">
+        <div style="position: relative">
+            <div class="product-next product-icon-more mb-1" style="height: 99%;width:5%;position:absolute; right:-1%;">
+                <i class="fa-solid fa-chevron-right product-action-icon product-action-icon-next" style="position:absolute; top:50%;left:50%;transform:translate(-50%,-50%);font-size:2rem"></i>
+            </div>
+
+
+            <div class="product-previous product-icon-more mb-1" style="height: 99%;width:5%;position:absolute; left:-1%;">
+                <i class="fa-solid fa-chevron-left product-action-icon product-action-icon-previous" style="position:absolute; top:50%;left:50%;transform:translate(-50%,-50%);font-size:2rem"></i>
+            </div>
+
+            <div class="row div-show-product">
+                @php
+                $i = 1;
+                for($i=1;$i<=10;$i++){ if($i%2==1){ 
+                    if($i==1)
+                    echo'<a href="/sanpham/abc" class="product-item w-20">
+                    <div id="product-1" class="single-product me-1 mb-1">
+                        <div class="part">
+                            <img class="test" style="width: 100%;" src="/images/ex_product.jpg" alt="">
+                        </div>
+                        <div class="part-2">
+                            <h3 class="product-title">Here Product Title</h3>
+                            <h4 class="product-old-price">$79.99</h4>
+                            <h4 class="product-price">$49.99</h4>
+                        </div>
+                    </div>
+                    </a>' ;
+                    else{
+                        echo'<a href="/sanpham/abc" class="product-item w-20">
                     <div id="product-1" class="single-product ms-1 me-1 mb-1">
                         <div class="part">
                             <img class="test" style="width: 100%;" src="/images/ex_product.jpg" alt="">
@@ -304,42 +384,67 @@
                             <h4 class="product-price">$49.99</h4>
                         </div>
                     </div>
-                </a>' ;
-                    } 
+                    </a>' ;
+                    }
+                    }
                     else{
-                        echo '<a href="/sanpham/abc" class="col product-item">
-                    <div id="product-2" class="single-product ms-1 me-1 mb-1">
-                        <div class="part">
-                            <img class="test" style="width: 100%;" src="/images/ex_product.jpg" alt="">
+                    echo '<a href="/sanpham/abc" class="product-item w-20">
+                        <div id="product-2" class="single-product ms-1 me-1 mb-1">
+                            <div class="part">
+                                <img class="test" style="width: 100%;" src="/images/ex_product.jpg" alt="">
+                            </div>
+                            <div class="part-2">
+                                <h3 class="product-title">Here Product Title</h3>
+                                <h4 class="product-price">$49.99</h4>
+                            </div>
                         </div>
-                        <div class="part-2">
-                            <h3 class="product-title">Here Product Title</h3>
-                            <h4 class="product-price">$49.99</h4>
-                        </div>
-                    </div>
                     </a>';
                     }
-            } @endphp <!-- Single Product -->
+                    } @endphp
+                    <!-- Single Product -->
+            </div>
         </div>
     </div>
     <!-- Nha bếp -->
     <div class="container mb-5">
         <div class="row mb-3 category" >
             <div class="col-md-8 col-lg-6">
-                <div>
-                    <a href="/danhmuc/nha-bep">
+                <div class ="category-text">
+                    <a  href="/danhmuc/nha-bep">
                         <h2 class="category-text">Nhà bếp</h2>
                     </a>
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center row-cols-sm-2 row-cols-md-3 row-cols-xl-5">
-            <!-- Single Product -->
-             @php
-            $i = 1;
-            for($i=1;$i<=10;$i++){
-                 if($i%2==1){
-                     echo'<a href="/sanpham/abc" class="col product-item">
+        <div style="position: relative">
+            <div class="product-next product-icon-more mb-1" style="height: 99%;width:5%;position:absolute; right:-1%;">
+                <i class="fa-solid fa-chevron-right product-action-icon product-action-icon-next" style="position:absolute; top:50%;left:50%;transform:translate(-50%,-50%);font-size:2rem"></i>
+            </div>
+
+
+            <div class="product-previous product-icon-more mb-1" style="height: 99%;width:5%;position:absolute; left:-1%;">
+                <i class="fa-solid fa-chevron-left product-action-icon product-action-icon-previous" style="position:absolute; top:50%;left:50%;transform:translate(-50%,-50%);font-size:2rem"></i>
+            </div>
+
+            <div class="row div-show-product">
+                @php
+                $i = 1;
+                for($i=1;$i<=10;$i++){ if($i%2==1){ 
+                    if($i==1)
+                    echo'<a href="/sanpham/abc" class="product-item w-20">
+                    <div id="product-1" class="single-product me-1 mb-1">
+                        <div class="part">
+                            <img class="test" style="width: 100%;" src="/images/ex_product.jpg" alt="">
+                        </div>
+                        <div class="part-2">
+                            <h3 class="product-title">Here Product Title</h3>
+                            <h4 class="product-old-price">$79.99</h4>
+                            <h4 class="product-price">$49.99</h4>
+                        </div>
+                    </div>
+                    </a>' ;
+                    else{
+                        echo'<a href="/sanpham/abc" class="product-item w-20">
                     <div id="product-1" class="single-product ms-1 me-1 mb-1">
                         <div class="part">
                             <img class="test" style="width: 100%;" src="/images/ex_product.jpg" alt="">
@@ -350,42 +455,67 @@
                             <h4 class="product-price">$49.99</h4>
                         </div>
                     </div>
-                </a>' ;
-                    } 
+                    </a>' ;
+                    }
+                    }
                     else{
-                        echo '<a href="/sanpham/abc" class="col product-item">
-                    <div id="product-2" class="single-product ms-1 me-1 mb-1">
-                        <div class="part">
-                            <img class="test" style="width: 100%;" src="/images/ex_product.jpg" alt="">
+                    echo '<a href="/sanpham/abc" class="product-item w-20">
+                        <div id="product-2" class="single-product ms-1 me-1 mb-1">
+                            <div class="part">
+                                <img class="test" style="width: 100%;" src="/images/ex_product.jpg" alt="">
+                            </div>
+                            <div class="part-2">
+                                <h3 class="product-title">Here Product Title</h3>
+                                <h4 class="product-price">$49.99</h4>
+                            </div>
                         </div>
-                        <div class="part-2">
-                            <h3 class="product-title">Here Product Title</h3>
-                            <h4 class="product-price">$49.99</h4>
-                        </div>
-                    </div>
                     </a>';
                     }
-            } @endphp <!-- Single Product -->
+                    } @endphp
+                    <!-- Single Product -->
+            </div>
         </div>
     </div>
     <!-- Túi xách -->
     <div class="container mb-5">
         <div class="row mb-3 category" >
             <div class="col-md-8 col-lg-6">
-                <div>
-                    <a href="/danhmuc/tui-xach">
+                <div class ="category-text">
+                    <a  href="/danhmuc/tui-xach">
                         <h2 class="category-text">Túi xách</h2>
                     </a>
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center row-cols-sm-2 row-cols-md-3 row-cols-xl-5">
-            <!-- Single Product -->
-             @php
-            $i = 1;
-            for($i=1;$i<=10;$i++){
-                 if($i%2==1){
-                     echo'<a href="/sanpham/abc" class="col product-item">
+        <div style="position: relative">
+            <div class="product-next product-icon-more mb-1" style="height: 99%;width:5%;position:absolute; right:-1%;">
+                <i class="fa-solid fa-chevron-right product-action-icon product-action-icon-next" style="position:absolute; top:50%;left:50%;transform:translate(-50%,-50%);font-size:2rem"></i>
+            </div>
+
+
+            <div class="product-previous product-icon-more mb-1" style="height: 99%;width:5%;position:absolute; left:-1%;">
+                <i class="fa-solid fa-chevron-left product-action-icon product-action-icon-previous" style="position:absolute; top:50%;left:50%;transform:translate(-50%,-50%);font-size:2rem"></i>
+            </div>
+
+            <div class="row div-show-product">
+                @php
+                $i = 1;
+                for($i=1;$i<=10;$i++){ if($i%2==1){ 
+                    if($i==1)
+                    echo'<a href="/sanpham/abc" class="product-item w-20">
+                    <div id="product-1" class="single-product me-1 mb-1">
+                        <div class="part">
+                            <img class="test" style="width: 100%;" src="/images/ex_product.jpg" alt="">
+                        </div>
+                        <div class="part-2">
+                            <h3 class="product-title">Here Product Title</h3>
+                            <h4 class="product-old-price">$79.99</h4>
+                            <h4 class="product-price">$49.99</h4>
+                        </div>
+                    </div>
+                    </a>' ;
+                    else{
+                        echo'<a href="/sanpham/abc" class="product-item w-20">
                     <div id="product-1" class="single-product ms-1 me-1 mb-1">
                         <div class="part">
                             <img class="test" style="width: 100%;" src="/images/ex_product.jpg" alt="">
@@ -396,42 +526,67 @@
                             <h4 class="product-price">$49.99</h4>
                         </div>
                     </div>
-                </a>' ;
-                    } 
+                    </a>' ;
+                    }
+                    }
                     else{
-                        echo '<a href="/sanpham/abc" class="col product-item">
-                    <div id="product-2" class="single-product ms-1 me-1 mb-1">
-                        <div class="part">
-                            <img class="test" style="width: 100%;" src="/images/ex_product.jpg" alt="">
+                    echo '<a href="/sanpham/abc" class="product-item w-20">
+                        <div id="product-2" class="single-product ms-1 me-1 mb-1">
+                            <div class="part">
+                                <img class="test" style="width: 100%;" src="/images/ex_product.jpg" alt="">
+                            </div>
+                            <div class="part-2">
+                                <h3 class="product-title">Here Product Title</h3>
+                                <h4 class="product-price">$49.99</h4>
+                            </div>
                         </div>
-                        <div class="part-2">
-                            <h3 class="product-title">Here Product Title</h3>
-                            <h4 class="product-price">$49.99</h4>
-                        </div>
-                    </div>
                     </a>';
                     }
-            } @endphp <!-- Single Product -->
+                    } @endphp
+                    <!-- Single Product -->
+            </div>
         </div>
     </div>
     <!-- Giỏ đựng -->
-    <div class="container product-item">
+    <div class="container mb-5">
         <div class="row mb-3 category" >
             <div class="col-md-8 col-lg-6">
-                <div>
-                    <a href="/danhmuc/gio-dung">
-                        <h2 class="category-text">Giỏ đựng</h2>
+                <div class ="category-text">
+                    <a  href="/danhmuc/gio-dung">
+                        <h2 class="category-text">gio-dung</h2>
                     </a>
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center row-cols-sm-2 row-cols-md-3 row-cols-xl-5">
-            <!-- Single Product -->
-             @php
-            $i = 1;
-            for($i=1;$i<=10;$i++){
-                 if($i%2==1){
-                     echo'<a href="/sanpham/abc" class="col product-item">
+        <div style="position: relative">
+            <div class="product-next product-icon-more mb-1" style="height: 99%;width:5%;position:absolute; right:-1%;">
+                <i class="fa-solid fa-chevron-right product-action-icon product-action-icon-next" style="position:absolute; top:50%;left:50%;transform:translate(-50%,-50%);font-size:2rem"></i>
+            </div>
+
+
+            <div class="product-previous product-icon-more mb-1" style="height: 99%;width:5%;position:absolute; left:-1%;">
+                <i class="fa-solid fa-chevron-left product-action-icon product-action-icon-previous" style="position:absolute; top:50%;left:50%;transform:translate(-50%,-50%);font-size:2rem"></i>
+            </div>
+
+            <div class="row div-show-product">
+                @php
+                $i = 1;
+                for($i=1;$i<=10;$i++){ if($i%2==1){ 
+                    if($i==1)
+                    echo'<a href="/sanpham/abc" class="product-item w-20">
+                    <div id="product-1" class="single-product me-1 mb-1">
+                        <div class="part">
+                            <img class="test" style="width: 100%;" src="/images/ex_product.jpg" alt="">
+                        </div>
+                        <div class="part-2">
+                            <h3 class="product-title">Here Product Title</h3>
+                            <h4 class="product-old-price">$79.99</h4>
+                            <h4 class="product-price">$49.99</h4>
+                        </div>
+                    </div>
+                    </a>' ;
+                    else{
+                        echo'<a href="/sanpham/abc" class="product-item w-20">
                     <div id="product-1" class="single-product ms-1 me-1 mb-1">
                         <div class="part">
                             <img class="test" style="width: 100%;" src="/images/ex_product.jpg" alt="">
@@ -442,22 +597,25 @@
                             <h4 class="product-price">$49.99</h4>
                         </div>
                     </div>
-                </a>' ;
-                    } 
+                    </a>' ;
+                    }
+                    }
                     else{
-                        echo '<a href="/sanpham/abc" class="col product-item">
-                    <div id="product-2" class="single-product ms-1 me-1 mb-1">
-                        <div class="part">
-                            <img class="test" style="width: 100%;" src="/images/ex_product.jpg" alt="">
+                    echo '<a href="/sanpham/abc" class="product-item w-20">
+                        <div id="product-2" class="single-product ms-1 me-1 mb-1">
+                            <div class="part">
+                                <img class="test" style="width: 100%;" src="/images/ex_product.jpg" alt="">
+                            </div>
+                            <div class="part-2">
+                                <h3 class="product-title">Here Product Title</h3>
+                                <h4 class="product-price">$49.99</h4>
+                            </div>
                         </div>
-                        <div class="part-2">
-                            <h3 class="product-title">Here Product Title</h3>
-                            <h4 class="product-price">$49.99</h4>
-                        </div>
-                    </div>
                     </a>';
                     }
-            } @endphp <!-- Single Product -->
+                    } @endphp
+                    <!-- Single Product -->
+            </div>
         </div>
     </div>
 </section>

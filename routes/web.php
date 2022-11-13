@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductCtrl;
 use App\Http\Controllers\PolicyCtrl;
 use App\Http\Controllers\Admin\Interface_ColorCtrl;
 use App\Http\Controllers\Admin\CategoryAdminCtrl;
+use App\Http\Controllers\Admin\ProductAdminCtrl;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,15 @@ Route::group(['prefix' => 'admin'], function () {
     //category
 
     Route::get("/category",[CategoryAdminCtrl::class,"index"]);
+    Route::get("/category/delete/{id}",[CategoryAdminCtrl::class,"delete"]);
+    Route::get("/create-category",[CategoryAdminCtrl::class,"create"]);
+    Route::post("/add-category",[CategoryAdminCtrl::class,"add"]);
+    Route::get("/category/edit/{id}",[CategoryAdminCtrl::class,"edit"]);
+    Route::post("/update-category/{id}",[CategoryAdminCtrl::class,"update"]);
+
+    //
+    Route::get("/create-product",[ProductAdminCtrl::class,"create"]);
+    Route::post("/add-product",[ProductAdminCtrl::class,"add"]);
 });
 
 
