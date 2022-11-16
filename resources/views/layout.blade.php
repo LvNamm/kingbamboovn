@@ -156,8 +156,12 @@
       color: {{$interfaceColor->hd_cl_text_contact}}
     }
     .text-footer{
-      color:{{$interfaceColor->ft_cl_text}}
+      color:{{$interfaceColor->ft_cl_text}}!important;
     }
+    .footer-background-color{
+      background-color: {{$interfaceColor->ft_cl_background}}!important;
+    }
+
     @media (min-width: 768px) {
       .col-sm-2-10 {
         width: 50%;
@@ -277,7 +281,7 @@
   @yield('main-content')
 
   <footer>
-    <div class="container-fluid text-footer" style=" background-color: #46b946;; padding-top: 20px;">
+    <div class="container-fluid text-footer footer-background-color" style=" padding-top: 20px;">
     <div class="container row" style="margin-left:auto;margin-right: auto;">
       <div class="col-md-4" style="margin: 0">
         <h4>Trợ giúp</h4>
@@ -339,7 +343,7 @@
     </div>
   </div>
 
-  <div class="container-fluid" style=" background-color: #46b946;; padding-top: 20px; color: white;">
+  <div class="container-fluid text-footer footer-background-color" style="  padding-top: 20px; color: white;">
     <p class="text-center" style="font-size:0.9rem;margin:0">CÔNG TY TNHH THIẾT MAI</p>
     <p class="text-center" style="font-size:0.9rem;margin:0">Địa chỉ	Xóm Hạ, thôn Phú Vinh, Xã Phú Nghĩa, Huyện Chương Mỹ, Thành phố Hà Nội, Việt Nam</p>
     <p class="text-center" style="font-size:0.9rem;margin:0">Giấy phép kinh doanh số:</p>
@@ -353,6 +357,7 @@
     src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js'></script>
     <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
   <script src="/js/jsmain.js"></script>
+  
   
 
 </body>

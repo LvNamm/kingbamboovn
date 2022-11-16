@@ -1,6 +1,9 @@
 @extends('admin.layout')
 @section('content')
     <form action="/admin/interface/change-color" method="POST">
+        @php
+   print_r($color);   
+  @endphp
         @csrf
         <div class="row">
             <div class="col-sm">

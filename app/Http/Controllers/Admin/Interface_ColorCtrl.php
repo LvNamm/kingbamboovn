@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Interface_color;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class Interface_ColorCtrl extends Authentication
 {
@@ -12,10 +13,11 @@ class Interface_ColorCtrl extends Authentication
         if (!$this->authentication($request))
             return redirect("/admin/login");
         $opacity = array();
+        $color = array();
         $interfaceColor = Interface_color::orderBy('id', 'DESC')->get()->first();
         // $rbga = explode(",",substr($interfaceColor->hd_cl_background,1,-1));
-        array_push($opacity,explode(",",
-            substr($interfaceColor->hd_cl_background,1,-1))[3],
+        array_push($opacity,
+            explode(",",substr($interfaceColor->hd_cl_background,1,-1))[3],
             explode(",",substr($interfaceColor->hd_cl_text_category,1,-1))[3],
             explode(",",substr($interfaceColor->hd_cl_text_contact,1,-1))[3],
             explode(",",substr($interfaceColor->hd_cl_text_contact_content,1,-1))[3],
@@ -31,7 +33,18 @@ class Interface_ColorCtrl extends Authentication
         $interfaceColor->bd_cl_text_category = $this->Rgba2Hex($interfaceColor->bd_cl_text_category);
         $interfaceColor->ft_cl_background = $this->Rgba2Hex($interfaceColor->ft_cl_background);
         $interfaceColor->ft_cl_text = $this->Rgba2Hex($interfaceColor->ft_cl_text);
-        return view("admin.interface_color", ["interfaceColor" => $interfaceColor,"opacity"=>$opacity]);
+        array_push($color,
+                    $interfaceColor->hd_cl_background,
+                    $interfaceColor->hd_cl_text_category,
+                    $interfaceColor->hd_cl_text_contact,
+                    $interfaceColor->hd_cl_text_contact_content,
+                    $interfaceColor->bd_cl_background_category,
+                    $interfaceColor->bd_cl_text_category,
+                    $interfaceColor->ft_cl_background,
+                    $interfaceColor->ft_cl_text
+        );
+        // print_r($color);
+        return view("admin.interface_color", ["interfaceColor" => $interfaceColor,"opacity"=>$opacity,"color"=>$color]);
     }
 
     public function changeColor(Request $request)
@@ -100,8 +113,11 @@ class Interface_ColorCtrl extends Authentication
         }
 
         $rr = dechex($rgba['0']);
+        $rr = strlen($rr)==1?'0'.$rr:$rr;
         $gg = dechex($rgba['1']);
+        $gg = strlen($gg)==1?'0'.$gg:$gg;
         $bb = dechex($rgba['2']);
+        $bb = strlen($bb)==1?'0'.$bb:$bb;
 
         return strtoupper("#$rr$gg$bb");
     }

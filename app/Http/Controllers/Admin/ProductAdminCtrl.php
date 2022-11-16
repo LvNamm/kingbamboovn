@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductAdminCtrl extends Authentication
@@ -29,5 +30,7 @@ class ProductAdminCtrl extends Authentication
                 'describe'=> 'required',
                 'note'=> 'required',
             ]);
+            $product = new Product();
+
     }
 }

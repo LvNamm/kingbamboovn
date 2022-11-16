@@ -7,7 +7,9 @@
     {{ Session::pull('errAddCategory')}}
     </div>
     @endif
+    
     <form action="/admin/add-product" class="col-md-6" enctype="multipart/form-data" method="post">
+        <p style="color: red">Chưa dùng được cái này</p>
         @csrf
         {{-- title --}}
         {!!$errors->has('title')?'<p class="error mb-0" style = "color:red">'.$errors->get("title")[0].'</p>':null!!}

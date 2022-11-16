@@ -20,7 +20,7 @@ return new class extends Migration
             $table->unsignedInteger("amount");
             $table->string("url_img");
             $table->string("sku");
-            $table->string("fabrics");
+            $table->string("fabrics"); //chất liệu
             $table->string("export");
             $table->string("pack");
             $table->string("uses");
