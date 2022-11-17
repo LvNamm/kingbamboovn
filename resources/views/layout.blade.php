@@ -162,6 +162,16 @@
       background-color: {{$interfaceColor->ft_cl_background}}!important;
     }
 
+    .category{
+        background-color: {{$interfaceColor->bd_cl_background_category}};
+        --bs-gutter-x: 1.5rem;
+        margin-right: calc(var(--bs-gutter-x) * -.5);
+    margin-left: calc(var(--bs-gutter-x) * -.5);
+    }
+
+    .category-text{
+        color:{{$interfaceColor->bd_cl_text_category}};
+    }
     @media (min-width: 768px) {
       .col-sm-2-10 {
         width: 50%;
@@ -228,7 +238,7 @@
         <div class="container">
             <div class="container-fluid">
                 <a href="/" id="logo-doc" style="display: flex;justify-content: center;align-items: center;">
-                    <img width="400" src="/images/logo/logonn.png" alt="">
+                    <img width="400" src="/images/logo/logongang.png" alt="">
 </a>
                 <div class="row d-flex align-items-center ">
                     <!-- <div class="col-md-2">
@@ -236,7 +246,7 @@
       </div> -->
                     <div class="row" style="justify-content: space-between;align-items: center;">
                         <a href="/" id="logo-ngang" class="col-md-2">
-                            <img src="/images/logo/logovn.png" height="100" alt="">
+                            <img src="/images/logo/logodoc.png" height="100" alt="">
 </a>
                         <div class="col-md-6">
                             <div class="d-flex form-inputs">
