@@ -51,6 +51,8 @@ Route::group(['prefix' => 'admin'], function () {
     //
     Route::get("/create-product",[ProductAdminCtrl::class,"create"]);
     Route::post("/add-product",[ProductAdminCtrl::class,"add"]);
+    Route::get("/product",[ProductAdminCtrl::class,"index"]);
+    Route::get("/product/delete/{id}",[ProductAdminCtrl::class,"delete"]);
 });
 
 

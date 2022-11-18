@@ -20,7 +20,7 @@
         <tr>
             <th scope="row">{{$category->id}}</th>
             <td>{{$category->title}}</td>
-            <td><img src="{{$category->url_img}}" style="height:70px" alt=""></td>
+            <td><img src="{{$category->url_img}}" style="height:70px" alt=""> </td>
             <td>{{$category->link}}</td>
             <td>{{$category->priority}}</td>
             <td>{{$category->createdAt->fullname}}</td>

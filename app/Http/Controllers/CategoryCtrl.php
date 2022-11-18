@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Interface_color;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Product;
 
 class CategoryCtrl extends Controller
 {
@@ -15,19 +16,20 @@ class CategoryCtrl extends Controller
     }
 
     public function showProductByCategory($category){
-        $categorys  =  [
-            'all'=>"Tất cả sản phẩm",
-            'trang-tri-nha-cua'=>"Trang trí nhà cửa",
-            'trang-tri-quan-cafe' => "Trang trí quán cafe",
-            'trang-tri-van-phong' => "Trang trí văn phòng",
-            'khay-dung' => "Khay đựng",
-            'nha-bep' => "Nhà bếp",
-            'tui-xach' => "Khay đựng",
-            'gio-dung' => "Giỏ đựng"
-        ];
+        $products = null;
+        $title = null;
+        if($category=="all"){
+            $products = Product::all();
+            $title = "Tất cả sản phẩm";
+        }
+        else{
+            $category = Category::where('link',$category)->first();
+            $title = $category->title;
+            $products = $category->products()->get();
+        }
         $categories = Category::orderBy('priority')->get();
         $interfaceColor = Interface_color::orderBy('id', 'DESC')->get()->first();
-        return view("list-products-of-category",["category"=>$categorys[$category],"interfaceColor"=>$interfaceColor,"categories"=>$categories]);
+        return view("list-products-of-category",["products"=>$products,'title'=>$title,"interfaceColor"=>$interfaceColor,"categories"=>$categories]);
     }
 
     

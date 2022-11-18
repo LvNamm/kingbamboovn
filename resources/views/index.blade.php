@@ -94,7 +94,7 @@
             <ul class="navbar-nav d-flex flex-row">
                 @foreach ($categories as $category)
                 <li class="nav-item w-15 item-dm">
-                    <a class="nav-link d-flex flex-column align-items-center active" aria-current="page" href="/danhmuc/trang-tri-nha-cua">
+                    <a class="nav-link d-flex flex-column align-items-center active" aria-current="page" href="/danhmuc/{{$category->link}}">
                         <img style="height:100px" src="{{$category->url_img}}" alt="">
                         <p style="margin: 0;text-align: center;">{{$category->title}}</p>
                     </a>
@@ -146,7 +146,22 @@
             <div class="row div-show-product product-{{$category->id}}">
                 @php
                 $i = 1;
-                for($i=1;$i<=10;$i++){ if($i%2==1){ 
+                @endphp
+
+                @foreach($category->products as $product)
+                <a href="/sanpham/{{$product->title}}" class="product-item w-20">
+                <div id="product-2" class="single-product ms-1 me-1 mb-1">
+                    <div class="part">
+                        <img class="test" style="width: 100%;" src="{{$product->url_img}}" alt="">
+                    </div>
+                    <div class="part-2 mt-2 ms-2">
+                        <h3 class="product-title">{{$product->title}}</h3>
+                        <h4 style="color: rgb(13, 196, 13)" class="product-price ms-1">{{$product->styleVND()}}&#8363;</h4>
+                    </div>
+                </div>
+                </a>
+                @endforeach
+                {{-- for($i=1;$i<=10;$i++){ if($i%2==1){ 
                     if($i==1)
                     echo'<a href="/sanpham/abc" class="product-item w-20">
                     <div id="product-1" class="single-product me-1 mb-1">
@@ -188,7 +203,7 @@
                         </div>
                     </a>';
                     }
-                    } @endphp
+                    } @endphp --}}
                     <!-- Single Product -->
             </div>
 

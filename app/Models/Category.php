@@ -18,4 +18,10 @@ class Category extends Model
     public function updatedBy(){
         return $this->belongsTo(Admin::class,"updated_by");
     }
+
+    public function products(){
+        return $this->belongsToMany(Product::class, 'product_categories','id_category','id_product');
+    }
+
+    
 }

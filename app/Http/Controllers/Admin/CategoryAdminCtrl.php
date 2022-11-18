@@ -33,12 +33,14 @@ class CategoryAdminCtrl extends Authentication
         $Adminhistory->save();
         if (File::exists(public_path($category->url_img))) {
             File::delete(public_path($category->url_img));
-            echo "Tìm thấy xóa\n";
+            
         } else {
-            dd('File does not exists.');
+            
         }
+        $category->products()->detach();
         $category->delete();
-        echo "ok";
+        return redirect("/admin/category");
+        
     }
 
     public function create(Request $request)
