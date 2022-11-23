@@ -70,7 +70,8 @@
         {!!$errors->has('describe')?'<p class="error mb-0" style = "color:red">'.$errors->get("describe")[0].'</p>':null!!}
         <div class="input-group mb-3 row  ms-0 me-0">
             <span class="input-group-text col-md-3" id="basic-addon1">Mô tả</span>
-            <input name="describe" type="text" class="form-control" placeholder="Mô tả sản phẩm" aria-describedby="basic-addon1">
+            <textarea name="describe" type="text" class="form-control" placeholder="Mô tả sản phẩm" aria-describedby="basic-addon1"></textarea>
+                
         </div>
 
         {{-- Lưu ý --}}
@@ -85,6 +86,13 @@
         <div class="input-group mb-3 row  ms-0 me-0">
             <span class="col-md-3 input-group-text" id="basic-addon1">Link shopee</span>
             <input name="link_shopee" type="text" class="form-control" placeholder="Link shopee" aria-describedby="basic-addon1">
+        </div>
+
+        {{-- Phân loại --}}
+        <p style="color: green">Nhập phân loại + giá phân loại. tên và giá cách nhau bởi dấu cộng các phân loại cách nhau bởi dấu , vd: Phân loại 1+10000,Phân loại 2+20000</p>
+        <div class="input-group mb-3 row  ms-0 me-0">
+            <span class="col-md-3 input-group-text" id="basic-addon1">Phân loại</span>
+            <input name="classify" type="text" class="form-control" placeholder="Danh mục" aria-describedby="basic-addon1">
         </div>
 
         {{-- Danh mục --}}

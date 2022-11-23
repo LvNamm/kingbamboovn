@@ -5,6 +5,9 @@
         .w-20 {
             width: 20% !important;
         }
+        .classify-content{
+            border: 1px solid rgb(80, 80, 80);
+        }
     </style>
     <div class="container">
         <div class="row">
@@ -14,18 +17,19 @@
                     data-bs-interval="false">
                     <div class="carousel-inner" style="border:1px solid rgb(122, 240, 122)">
                         <div class="carousel-item ps-1 pe-1 pt-1 pb-1 active">
-                            <img src="{{$product->url_img}}" class="d-block w-100" alt="...">
+                            <img src="{{ $product->url_img }}" class="d-block w-100" alt="...">
                         </div>
                         @php
-                            $i=1;
+                            $i = 1;
                         @endphp
-                        @foreach($product->img as $img)
-                        <div class="carousel-item">
-                            <img id="img_{{$i}}" src="{{$img->url_img}}" class="d-block w-100" alt="...">
-                        </div>
-                        @php
-                        $i++;
-                        @endphp
+                        @foreach ($product->img as $img)
+                            <div class="carousel-item">
+                                <img id="img_{{ $i }}" src="{{ $img->url_img }}" class="d-block w-100"
+                                    alt="...">
+                            </div>
+                            @php
+                                $i++;
+                            @endphp
                         @endforeach
                         {{-- <div class="carousel-item">
                             <img src="/images/products/lotly/6.jpg" class="d-block w-100" alt="...">
@@ -65,11 +69,11 @@
 
                 <!-- style="white-space:nowrap;overflow-x: scroll;" -->
                 <div class="mt-2" style="display:flex; flex-wrap: wrap;">
-                    @foreach($product->img as $img)
-                    <div class="pe-1 pb-1 w-20">
-                        <img style="border:1px solid rgba(0,0,0,0.3)" class="w-100" src="{{$img->url_img}}"
-                            alt="">
-                    </div>
+                    @foreach ($product->img as $img)
+                        <div class="pe-1 pb-1 w-20">
+                            <img style="border:1px solid rgba(0,0,0,0.3)" class="w-100" src="{{ $img->url_img }}"
+                                alt="">
+                        </div>
                     @endforeach
                     {{-- <div class="pe-1 pb-1 w-20">
                         <img style="border:1px solid rgba(0,0,0,0.3)" class="w-100" src="/images/products/lotly/bia.jpg"
@@ -115,27 +119,55 @@
                 <div class="mt-3 mb-3">
                     <b>
                         {{-- Lót ly mây tre đan - King Bamboo --}}
-                        <h5>{{$product->title}}</h5>
+                        <h5>{{ $product->title }}</h5>
                     </b>
                 </div>
 
 
                 <div>
-                    <p>{{$product->styleVND()}}&#8363;</p>
+                    <p>{{ $product->styleVND() }}&#8363;</p>
                 </div>
 
-                <div>
-                    <p>Phân loại</p>
+                <div class="d-flex fex-row">
+                    <p style="white-space: nowrap">Phân loại</p>
+                    <div class="d-flex fex-row flex-wrap ms-3">
+                        <div class="classify-content ms-2 mb-1 center">
+                            <p class="text-center ms-2 me-2 mt-1 mb-1">Khoo abc xyz </p>
+                        </div>
+
+                        <div class="classify-content ms-2 mb-1 center">
+                            <p class="text-center ms-2 me-2 mt-1 mb-1">Khoo</p>
+                        </div>
+
+                        <div class="classify-content ms-2 mb-1 center">
+                            <p class="text-center ms-2 me-2 mt-1 mb-1">Khoo</p>
+                        </div>
+
+                        <div class="classify-content ms-2 mb-1 center">
+                            <p class="text-center ms-2 me-2 mt-1 mb-1">Khoo</p>
+                        </div>
+
+                        <div class="classify-content ms-2 mb-1 center">
+                            <p class="text-center ms-2 me-2 mt-1 mb-1">Khoo</p>
+                        </div>
+
+                        <div class="classify-content col-md-2 ms-2 mb-1 center">
+                            <p class="text-center mt-1 mb-1">Khoo</p>
+                        </div>
+                    </div>
+
                 </div>
 
                 <div style="display:flex;">
                     <p style="margin-right: 150px;white-space: nowrap;">Đặt hàng</p>
-                    {!! !empty($product->link_shopee) ? '<a target="_blank" href="{{$product->link_shopee}}" class="center me-1"
-                        style="justify-content: flex-start; padding: 0 10px 0 10px;background-color:#23dd23;border:1px solid rgb(35, 231, 61, 0.0);border-radius:20px">
-                        <img style="width:30px" src="/images/contact/shopee.png" alt="">
-                        <p class="ms-2 me-2 mt-2 mb-2" style="color: white;">Shopee</p>
-                    </a>' :''!!}
-                    
+                    {!! !empty($product->link_shopee)
+                        ? '<a target="_blank" href="{{ $product->link_shopee }}" class="center me-1"
+                                            style="justify-content: flex-start; padding: 0 10px 0 10px;background-color:#23dd23;border:1px solid rgb(35, 231, 61, 0.0);border-radius:20px">
+                                            <img style="width:30px" src="/images/contact/shopee.png" alt="">
+                                            <p class="ms-2 me-2 mt-2 mb-2" style="color: white;">Shopee</p>
+                                        </a>'
+                        : '' !!}
+
 
                     <div class="center"
                         style="
@@ -154,49 +186,49 @@
                 <div>
                     <p>
                         <b>SKU</b>
-                        &nbsp {{$product->sku}}
+                        &nbsp {{ $product->sku }}
                     </p>
                 </div>
 
                 <div>
                     <p>
                         <b>Chất liệu:</b>
-                        &nbsp {{$product->fabric}}
+                        &nbsp {{ $product->fabric }}
                     </p>
                 </div>
 
                 <div>
                     <p>
                         <b>Xuất khẩu:</b>
-                        &nbsp {{$product->export}}
+                        &nbsp {{ $product->export }}
                     </p>
                 </div>
 
                 <div>
                     <p>
                         <b>Bao bì đóng gói:</b>
-                        &nbsp {{$product->pack}}
+                        &nbsp {{ $product->pack }}
                     </p>
                 </div>
 
                 <div>
                     <p>
                         <b>Công dụng:</b>
-                        &nbsp {{$product->uses}}
+                        &nbsp {{ $product->uses }}
                     </p>
                 </div>
 
                 <div>
                     <p>
                         <b>Mô tả sản phẩm:</b>
-                        &nbsp {{$product->describe}}
+                        &nbsp {{ $product->describe }}
                     </p>
                 </div>
 
                 <div>
                     <p>
                         <b>Lưu ý khi sử dụng:</b>
-                        &nbsp {{$product->note}}
+                        &nbsp {{ $product->note }}
                     </p>
                 </div>
 

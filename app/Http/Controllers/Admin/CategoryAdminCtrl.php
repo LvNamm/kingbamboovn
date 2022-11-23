@@ -34,8 +34,6 @@ class CategoryAdminCtrl extends Authentication
         if (File::exists(public_path($category->url_img))) {
             File::delete(public_path($category->url_img));
             
-        } else {
-            
         }
         $category->products()->detach();
         $category->delete();
@@ -137,8 +135,8 @@ class CategoryAdminCtrl extends Authentication
                 $request->file('image')->move('images/danhmuc', $nameFileImage);
             } catch (Exception $ex) {
                 $request->session()->put('err-update', 'Đã xảy ra lỗi, nhập lại thông tin cho chính xác :3');
-                dd($ex);
-                echo '<div class="alert alert-sucess"> Khi bạn nhìn thấy dòng này thì chương trình đã bị lỗi ở đâu đó. Hãy chụp màn hình khối đên và gửi cho coder để được sử lý :3</div>';
+                // dd($ex);
+                echo '<div class="alert alert-sucess"> Khi bạn nhìn thấy dòng này thì chương trình đã bị lỗi ở đâu đó. Hãy chụp màn hình và gửi cho coder để được sử lý :3</div>'.'<br>'.dd($ex);
             }
         } else{
             try {
