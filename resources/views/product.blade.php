@@ -7,6 +7,7 @@
         }
         .classify-content{
             border: 1px solid rgb(80, 80, 80);
+            cursor: pointer;
         }
     </style>
     <div class="container">
@@ -125,17 +126,19 @@
 
 
                 <div>
-                    <p>{{ $product->styleVND() }}&#8363;</p>
+                    <p class="product-price">{{ $product->classify[0][1]}}&#8363;</p>
                 </div>
 
                 <div class="d-flex fex-row">
                     <p style="white-space: nowrap">Phân loại</p>
                     <div class="d-flex fex-row flex-wrap ms-3">
-                        <div class="classify-content ms-2 mb-1 center">
-                            <p class="text-center ms-2 me-2 mt-1 mb-1">Khoo abc xyz </p>
+                        @foreach($product->classify as $classify)
+                        <div class="classify-content ms-2 mb-1 center" onclick="getPrice('{{$classify[0]}}')">
+                            <p class="text-center ms-2 me-2 mt-1 mb-1">{{$classify[0]}} </p>
                         </div>
+                        @endforeach
 
-                        <div class="classify-content ms-2 mb-1 center">
+                        {{-- <div class="classify-content ms-2 mb-1 center">
                             <p class="text-center ms-2 me-2 mt-1 mb-1">Khoo</p>
                         </div>
 
@@ -153,15 +156,15 @@
 
                         <div class="classify-content col-md-2 ms-2 mb-1 center">
                             <p class="text-center mt-1 mb-1">Khoo</p>
-                        </div>
+                        </div> --}}
                     </div>
 
                 </div>
 
-                <div style="display:flex;">
+                <div class="mt-2" style="display:flex;">
                     <p style="margin-right: 150px;white-space: nowrap;">Đặt hàng</p>
                     {!! !empty($product->link_shopee)
-                        ? '<a target="_blank" href="{{ $product->link_shopee }}" class="center me-1"
+                        ? '<a target="_blank" href="'.$product->link_shopee.'" class="center me-1"
                                             style="justify-content: flex-start; padding: 0 10px 0 10px;background-color:#23dd23;border:1px solid rgb(35, 231, 61, 0.0);border-radius:20px">
                                             <img style="width:30px" src="/images/contact/shopee.png" alt="">
                                             <p class="ms-2 me-2 mt-2 mb-2" style="color: white;">Shopee</p>
@@ -185,7 +188,7 @@
                 <br>
                 <div>
                     <p>
-                        <b>SKU</b>
+                        <b>SKU:</b>
                         &nbsp {{ $product->sku }}
                     </p>
                 </div>
@@ -221,7 +224,7 @@
                 <div>
                     <p>
                         <b>Mô tả sản phẩm:</b>
-                        &nbsp {{ $product->describe }}
+                        &nbsp @php echo $product->describe; @endphp 
                     </p>
                 </div>
 
@@ -243,5 +246,15 @@
     <br>
     <br>
     <br>
+<script>
+    function getPrice(classify){
+        let a = new Map();
 
+            @foreach($product->classify as $classify)
+            a.set("{{$classify[0]}}","{{$classify[1]}}")
+            @endforeach
+        
+        document.querySelector(".product-price").innerHTML = a.get(classify)+"&#8363;"
+    }
+</script>
 @endsection

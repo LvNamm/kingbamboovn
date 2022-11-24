@@ -39,12 +39,22 @@ class ProductAdminCtrl extends Authentication
             'uses' => 'required',
             'describe' => 'required',
             'note' => 'required',
+            'classify'=>'required'
         ]);
-
+        $describe = $request->describe;
+        $describe = explode("\n",$describe);
+        $s=$describe[0];
+        for($i=1;$i<count($describe);$i++)
+            $s = $s.'<br>'.$describe[$i];
+        
+        $s = str_replace("\r","",$s);
+        
         $product = $request->except(['_token', 'category', 'image', 'photos']);
         $nameFileImage = $this->convert_name($product['title']) . "_" . uniqid() . "." . $request->file('image')->extension();
         $product['url_img'] = "/images/products/avata/" . $nameFileImage;
         $product['created_by']  = $request->session()->get('user-login');
+        $product['describe'] = $s;
+        
         Product::create($product);
         $request->file('image')->move('images/products/avata', $nameFileImage);
         $product = Product::where("title",$product['title'])->first();
@@ -64,7 +74,7 @@ class ProductAdminCtrl extends Authentication
         $product->categories()->sync($categories);
         session(['create-product-sucess' => 'Thêm mới thành công']);
         return redirect("/admin/create-product");
-        // dd($product);
+       
     }
 
     public function delete(Request $request, $id){

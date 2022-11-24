@@ -9,7 +9,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title','price' , 'amount' , 'url_img' , 'sku' , 'fabrics' , 'export', 'pack' , 'uses' , 'describe' , 'note' , 'show_in_web' , 'created_by' , 'updated_by' , 'created_at' , 'updated_at' , 'link_shopee'];
+    protected $fillable = ['title','price' , 'amount' , 'url_img' , 'sku' , 'fabrics' , 'export', 'pack' , 'uses' , 'describe' , 'note' , 'show_in_web' , 'created_by' , 'updated_by' , 'created_at' , 'updated_at' , 'link_shopee','classify'];
 
     public function createdBy(){
         return $this->belongsTo(Admin::class,"created_by");
