@@ -25,7 +25,9 @@
                         <img class="test" style="width: 100%;" src="{{$product->url_img}}" alt="">
                     </div>
                     <div class="part-2 mt-2 ms-2">
-                        <h3 class="product-title">{{$product->title}}</h3>
+                        <div style="min-height: 3rem">
+                            <h3 style="display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;overflow: hidden;"class="product-title">{{ $product->title }}</h3>
+                        </div>
                         <h4 style="color: rgb(13, 196, 13)" class="product-price ms-1">{{$product->styleVND()}}&#8363;</h4>
                     </div>
                 </div>

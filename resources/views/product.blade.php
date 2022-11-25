@@ -9,6 +9,10 @@
             border: 1px solid rgb(80, 80, 80);
             cursor: pointer;
         }
+        .classify-active{
+            border: 1px solid rgb(107, 175, 107);
+            color: green;
+        }
     </style>
     <div class="container">
         <div class="row">
@@ -132,10 +136,22 @@
                 <div class="d-flex fex-row">
                     <p style="white-space: nowrap">Phân loại</p>
                     <div class="d-flex fex-row flex-wrap ms-3">
+                        @php
+                        $i=true;
+                        @endphp
                         @foreach($product->classify as $classify)
-                        <div class="classify-content ms-2 mb-1 center" onclick="getPrice('{{$classify[0]}}')">
+                        @if($i)
+                        <div class="div classify-content ms-2 mb-1 center classify-active" onclick="getPrice('{{$classify[0]}}',event)">
                             <p class="text-center ms-2 me-2 mt-1 mb-1">{{$classify[0]}} </p>
                         </div>
+                            @php
+                            $i=0;
+                            @endphp
+                        @else
+                        <div class="div classify-content ms-2 mb-1 center" onclick="getPrice('{{$classify[0]}}',event)">
+                            <p class="text-center ms-2 me-2 mt-1 mb-1">{{$classify[0]}} </p>
+                        </div>
+                        @endif
                         @endforeach
 
                         {{-- <div class="classify-content ms-2 mb-1 center">
@@ -172,13 +188,13 @@
                         : '' !!}
 
 
-                    <div class="center"
+                    <a class="center" target="_blank" href="https://zalo.me/0362322699"
                         style="
                                 background-color: #1ccb1c;
                                 border: 1px solid white;
                                 border-radius: 30px;">
                         <p style="color: white;white-space: nowrap;" class="ps-3 pe-3 pb-0 mt-1 mb-1">Liên hệ đặt hàng</p>
-                    </div>
+                                    </a>
                 </div>
 
                 <br>
@@ -247,7 +263,7 @@
     <br>
     <br>
 <script>
-    function getPrice(classify){
+    function getPrice(classify,e){
         let a = new Map();
 
             @foreach($product->classify as $classify)
@@ -255,6 +271,17 @@
             @endforeach
         
         document.querySelector(".product-price").innerHTML = a.get(classify)+"&#8363;"
+
+        document.getElementsByClassName("classify-active")[0].classList.remove("classify-active");
+        // this.classList.add("classify-active");
+        if(!e.target.classList.contains('div')){
+            e.target.parentElement.classList.add("classify-active");
+        }
+        else{
+            e.target.classList.add("classify-active");
+        }
+
+        console.log(e.target.innerHTML)
     }
 </script>
 @endsection

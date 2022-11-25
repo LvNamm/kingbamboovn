@@ -200,7 +200,7 @@
 <div
     style="display: flex;flex-direction: column;position:fixed;right:1%;bottom:3%;z-index: 100; background-color:rgb(35, 231, 61, 0.0)">
     
-    <a target="_blank" href="https://m.me/kingbamboo.vn" class="mb-5 center"
+    <a target="_blank" href="https://shopee.vn/kingbamboovn" class="mb-5 center"
       style="justify-content: flex-start; padding: 0 10px 0 10px;background-color:#23dd23;border:1px solid rgb(35, 231, 61, 0.0);border-radius:20px">
       <img style="width:30px" src="/images/contact/shopee.png" alt="">
       <p class="ms-2 me-2 mt-2 mb-2" style="color: white;">Shopee</p>
