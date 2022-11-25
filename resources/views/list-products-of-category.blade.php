@@ -28,7 +28,8 @@
                         <div style="min-height: 3rem">
                             <h3 style="display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;overflow: hidden;"class="product-title">{{ $product->title }}</h3>
                         </div>
-                        <h4 style="color: rgb(13, 196, 13)" class="product-price ms-1">{{$product->styleVND()}}&#8363;</h4>
+                        <h4 style="color: rgb(13, 196, 13)" class="product-price ms-1">
+                            {{ $product->getMinPrice() }}&#8363;&nbsp;-&nbsp;{{ $product->getMaxPrice() }}&#8363;</h4>
                     </div>
                 </div>
                 </a>
